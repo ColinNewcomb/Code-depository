@@ -3,6 +3,8 @@ package ratings;
 import java.nio.channels.InterruptibleChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class ProblemSet {
 
@@ -36,11 +38,18 @@ public class ProblemSet {
     // 57 returns 12
     // -36 returns 9
     public static int sumOfDigits(int number) {
-        int num=number;
-        
+        int num=0;
+        ArrayList<Integer> ar1=new ArrayList<Integer>();
+        while (number>0){
+            ar1.add(number%10);
+            number/=10;
+        }
+        for (Integer i : ar1){
+            num+=i;
+        }
         return num;
     }
-}
+
     // TODO: Write a public static method named bestKey that takes a HashMap of String to Integer
     // as a parameter and returns a key mapping to the largest Integer. Ties can be broken arbitrarily.
     //If the HashMap is empty, return the empty String
@@ -49,4 +58,19 @@ public class ProblemSet {
     // {"CSE": 100, "MTH": 90, "MGT": 10} returns "CSE"
     // {"cat": 5, "dog": 5, "fox": 4} can return either "cat" or "dog"
     // {} returns ""
-   
+
+    public static String bestKey(HashMap<String, Integer> hash){
+        if (hash.size() == 0){
+            return "";
+        }
+        String bestkey="";
+        int value=0;
+        for (Map.Entry<String, Integer> entry : hash.entrySet()){
+            if (entry.getValue() > value){
+                value = entry.getValue();
+                bestkey= entry.getKey();
+            }
+        }
+        return bestkey;
+    }
+}
