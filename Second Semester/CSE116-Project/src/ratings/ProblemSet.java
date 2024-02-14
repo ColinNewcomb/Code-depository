@@ -38,11 +38,12 @@ public class ProblemSet {
     // 57 returns 12
     // -36 returns 9
     public static int sumOfDigits(int number) {
+        int ognum=Math.abs(number);
         int num=0;
         ArrayList<Integer> ar1=new ArrayList<Integer>();
-        while (number>0){
-            ar1.add(number%10);
-            number/=10;
+        while (ognum>0){
+            ar1.add(ognum%10);
+            ognum/=10;
         }
         for (Integer i : ar1){
             num+=i;
@@ -64,7 +65,7 @@ public class ProblemSet {
             return "";
         }
         String bestkey="";
-        int value=0;
+        int value=-2147483648;
         for (Map.Entry<String, Integer> entry : hash.entrySet()){
             if (entry.getValue() > value){
                 value = entry.getValue();
