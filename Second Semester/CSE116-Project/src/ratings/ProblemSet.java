@@ -19,7 +19,7 @@ public class ProblemSet {
 
     public static double average(ArrayList<Double> numbers) {
         double total=0.0;
-        if(numbers.size() == 0){
+        if (numbers.size() == 0){
             return 0.0;
         }else{
             for (int x=0; x<numbers.size(); x++){
