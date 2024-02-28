@@ -96,10 +96,70 @@ public class TestClasses1 {
         assertTrue(rate1.getRating()==(-1));
     }
     @Test
+    public void TestInvalidRating(){
+        Rating rate=new Rating("cool",0);
+        Rating rate1=new Rating("cool",0);
+        Rating rate2=new Rating("cool",0);
+        Rating rate3=new Rating("cool",0);
+        int rating=5;
+        int rating1=1;
+        int rating2=-5;
+        int rating3=0;
+        rate.setRating(rating);
+        rate1.setRating(rating1);
+        rate2.setRating(rating2);
+        rate3.setRating(rating3);
+        assertTrue(rate.getRating()==5);
+        assertTrue(rate1.getRating()==1);
+        assertTrue(rate2.getRating()==-1);
+        assertTrue(rate3.getRating()==-1);
+
+    }
+    @Test
     public void TestSetReviewer(){
         Reviewer person=new Reviewer("steve");
         String ID="john";
         person.setReviewerID(ID);
         assertEquals(ID,person.getReviewerID());
+    }
+    @Test
+    public void TestReviewerRate(){
+        Reviewer person=new Reviewer("steve");
+        Reviewer person1=new Reviewer("john");
+        Reviewer person2=new Reviewer("kyle");
+        Reviewer person3=new Reviewer("orange");
+        Reviewer person4=new Reviewer("purple");
+        
+        int Rating=-1;//Test Negative/Below Bounds
+        int Rating1=0;//Test Zero
+        int Rating2=1;//Bounds
+        int Rating3=5;//Bounds
+        int Rating4=6;//Test Above Bounds
+        
+        Rating rate=person.rateSong(Rating);
+        Rating rate1=person1.rateSong(Rating1);
+        Rating rate2=person2.rateSong(Rating2);
+        Rating rate3=person3.rateSong(Rating3);
+        Rating rate4=person4.rateSong(Rating4);
+
+        assertEquals("steve", rate.getReviewerID());
+        assertEquals("john", rate1.getReviewerID());
+        assertEquals("kyle", rate2.getReviewerID());
+        assertEquals("orange", rate3.getReviewerID());
+        assertEquals("purple", rate4.getReviewerID());
+        assertTrue(rate.getRating()==-1);
+        assertTrue(rate1.getRating()==-1);
+        assertTrue(rate2.getRating()==1);
+        assertTrue(rate3.getRating()==5);
+        assertTrue(rate4.getRating()==-1);
+        
+    }
+    
+    @Test
+    public void TestReviewerRateInvalid(){
+        Reviewer person=new Reviewer("steve");
+        int Rating=27;
+        Rating rate=person.rateSong(Rating);
+        assertTrue(rate.getRating()==-1);
     }
 }
