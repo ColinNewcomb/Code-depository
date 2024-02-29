@@ -24,9 +24,9 @@ public class ArrayList1 {
 
         HashMap<String,Integer> bills=new HashMap<>();
         bills.put("Allen",17);
-        bills.put("Knox", 88);
-        bills.put("Diggs", 14);
-        bills.put("Bass", 2);
+        bills.put("Knox",88);
+        bills.put("Diggs",14);
+        bills.put("Bass",2);
         System.out.println(bills);
         for (String key : bills.keySet()){
             System.out.println(key);

@@ -1,14 +1,12 @@
 package ratings;
 
-import java.util.LinkedList;
-
 import ratings.datastructures.LinkedListNode;
 
 public class Song {
     private String Title;
     private String artist;
     private String SongID;
-    private LinkedListNode<Rating> node;
+    private LinkedListNode<Rating> RatingList;
     
     
     public Song(String Title,String artist,String SongID){
@@ -35,27 +33,27 @@ public class Song {
         this.SongID=SongID;
     }
     public void addRating(Rating rating){   
-        if(this.node == null){
-            this.node=new LinkedListNode<>(rating, null);
+        if(this.RatingList == null){
+            this.RatingList=new LinkedListNode<>(rating, null);
         }else{
-            LinkedListNode<Rating> next=this.node;
-            while(next.getNext() != null){
-                next=next.getNext();
+            LinkedListNode<Rating> currentnode=this.RatingList;
+            while(currentnode.getNext() != null){
+                currentnode=currentnode.getNext();
             }
-            next.setNext(new LinkedListNode<>(rating,null));
+            currentnode.setNext(new LinkedListNode<>(rating,null));
         }
     }
     public LinkedListNode<Rating> getRatings(){
-        return this.node;
+        return this.RatingList;
     }
     public void setRatings(LinkedListNode<Rating> node){
-        this.node=node;
+        this.RatingList=node;
     }
     public double averageRating(){
         double sum=0.0;
         int count=0;
-        LinkedListNode<Rating> node=this.node;
-        if(this.node == null){
+        LinkedListNode<Rating> node=this.RatingList;
+        if(this.RatingList == null){
             return 0.0;
         }
         while(node != null){
@@ -70,13 +68,13 @@ public class Song {
     }
     
     public void removeRatingByReviewer(Reviewer reviewer){
-        if (this.node == null){
+        if (this.RatingList == null){
             return;
         }
-        LinkedListNode<Rating> node=this.node;
+        LinkedListNode<Rating> node=this.RatingList;
         while(node.getNext() !=null){
             if(node.getNext().getValue().getReviewerID().equals(reviewer.getReviewerID())){
-                node.setNext(node.getNext().getNext());
+                
                 return;
             }
         }

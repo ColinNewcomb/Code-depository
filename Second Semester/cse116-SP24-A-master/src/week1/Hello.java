@@ -15,8 +15,5 @@ public class Hello {
         System.out.println("x: "+x);
         boolean bool2=false;
         x=dumbMath(3);
-        System.out.println(str1);
-        System.out.println(num);
-        System.out.println(bool2);
     }
 }
