@@ -16,7 +16,7 @@ public class BankTest {
         return true;
     }
     @Test
-    public void testCompareAccounts(){
+    public void testCompareAccountS(){
         BankAccount b1=new BankAccount("A",1);
         BankAccount b2=new BankAccount("A",1);
         BankAccount b3=new BankAccount("B",1);
