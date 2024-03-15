@@ -2,6 +2,7 @@ package ratings;
 
 import ratings.datastructures.LinkedListNode;
 import ratings.Rating;
+
 public class Ratable {
     private String Title;
     private LinkedListNode<Rating> RatingList;
@@ -67,6 +68,9 @@ public class Ratable {
     public double bayesianAverageRating(int numExtraRatings,int valExtraRating){
         if (this.RatingList==null && numExtraRatings==0){
             return 0.0;
+        }
+        if(numExtraRatings==0 && (valExtraRating>=1 && valExtraRating<=5)){
+            return averageRating();
         }
         if (valExtraRating<1 || valExtraRating>5 || numExtraRatings<0){
             return 0.0;
