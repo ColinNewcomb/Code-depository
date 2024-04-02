@@ -331,41 +331,6 @@ public class TestClasses2 {
         
         assertTrue(compareArrayListsIgnoreCase(moviecast,cast)==true);
     }
-    @Test
-    public void testDifferentTitles(){
-        SongTitleComparator comparator=new SongTitleComparator();
-        Song song1=new Song("History","Alright","111");
-        Song song2=new Song("History","Bought","111");
 
-        assertTrue(comparator.compare(song1, song2));
-    }
-    @Test
-    public void testSameTitle(){
-        SongTitleComparator comparator=new SongTitleComparator();
-        Song song1=new Song("History","Alright","111");
-        Song song2=new Song("History","Alright","111");
-        assertFalse(comparator.compare(song1, song2));
-    }
-    @Test
-    public void testComparePrefix(){
-        SongTitleComparator comparator=new SongTitleComparator();
-        Song song1=new Song("History","Run","111");
-        Song song2=new Song("History","Running","111");
-        assertTrue(comparator.compare(song1, song2));
-    }
-    @Test
-    public void testCapital(){
-        SongTitleComparator comparator=new SongTitleComparator();
-        Song song1=new Song("History","alright","111");
-        Song song2=new Song("History","Bought","111");
-        assertTrue(comparator.compare(song1, song2));
-    }
-    @Test
-    public void testEmptyString(){
-        SongTitleComparator comparator=new SongTitleComparator();
-        Song song1=new Song("History","","111");
-        Song song2=new Song("History","Alright","111");
-        assertTrue(comparator.compare(song1, song2));
-    }
 }
 

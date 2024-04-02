@@ -4,7 +4,9 @@ import ratings.Song;
 
 
 public class SongTitleComparator extends Comparator<Song>{
-    public boolean compare(Song a,Song b){
-        return ((a.getTitle().compareToIgnoreCase(b.getTitle()))<0);
+    @Override
+    public boolean compare(Song song1,Song song2){
+
+        return song1.getTitle().compareToIgnoreCase(song2.getTitle()) < 0;
     }
 }

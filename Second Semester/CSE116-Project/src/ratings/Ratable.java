@@ -5,13 +5,17 @@ import ratings.Rating;
 
 public class Ratable {
     private String Title;
+
+
+
     private LinkedListNode<Rating> RatingList;
 
-    public String getTitle(){
-        return this.Title;
-    }
     public void setTitle(String Title){
+
         this.Title=Title;
+    }
+    public String getTitle() {
+        return Title;
     }
     public void addRating(Rating rating){   
         if(this.RatingList == null){
@@ -27,6 +31,7 @@ public class Ratable {
     public LinkedListNode<Rating> getRatings(){
         return this.RatingList;
     }
+
     public void setRatings(LinkedListNode<Rating> node){
         this.RatingList=node;
     }
