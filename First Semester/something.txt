@@ -1,0 +1,26 @@
+@Test
+    public void testreadSongs(){
+        ArrayList<Song> list=ratings.FileReader.readSongs("C:\\Users\\Cnewc\\OneDrive\\Stuff(where stuff is)\\Code depository\\Second Semester\\CSE116-Project\\data\\songs.csv");
+        Song first=list.get(0);
+        Song last=list.get(2);
+        assertTrue(first.getSongID().equals("7g4IuTLQXihfP23yrQm8l4"));
+        assertTrue(last.getSongID().equals("1EbWiEra7ovNsMq3DeLSDy"));
+
+    }
+    @Test
+    public void testreadMovies(){
+        ArrayList<Movie> array=ratings.FileReader.readMovies("C:\\Users\\Cnewc\\OneDrive\\Stuff(where stuff is)\\Code depository\\Second Semester\\CSE116-Project\\data\\movies.csv");
+        Movie firstish=array.get(0);
+        Movie lastish=array.get(1);
+        assertTrue(firstish.getTitle().equals("Toy Story"));
+        assertTrue(lastish.getTitle().equals("Jumanji"));
+    }
+    @Test
+    public void testreadMovieRating(){
+        ArrayList<Movie> array=ratings.FileReader.readMovies("C:\\Users\\Cnewc\\OneDrive\\Stuff(where stuff is)\\Code depository\\Second Semester\\CSE116-Project\\data\\movies.csv");
+        ArrayList<Movie> array1=ratings.FileReader.readMovieRatings(array, "C:\\Users\\Cnewc\\OneDrive\\Stuff(where stuff is)\\Code depository\\Second Semester\\CSE116-Project\\data\\movie_ratings.csv");
+        Movie firstish=array1.get(1);
+        LinkedListNode<Rating> something=firstish.getRatings();
+        double average1=firstish.averageRating();
+        assertEquals(3.425531914893617,average1,.001);
+    }

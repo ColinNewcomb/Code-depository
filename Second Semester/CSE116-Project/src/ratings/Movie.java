@@ -13,5 +13,5 @@ public class Movie extends Ratable{
     public ArrayList<String> getCast(){
         return this.cast;
     }
-
+    
 }
